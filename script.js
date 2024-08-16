@@ -6,6 +6,16 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
 
+    // Muestra un spinner o mensaje de carga
+    Swal.fire({
+        title: 'Sending...',
+        text: 'Please wait while we process your request.',
+        allowOutsideClick: false,
+        didOpen: () => {
+            Swal.showLoading();
+        }
+    });
+
     fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
@@ -16,6 +26,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     })
     .then(async (response) => {
         const json = await response.json();
+        Swal.close();  // Cierra el spinner
         if (response.ok) {
             Swal.fire({
                 title: 'Success!',
