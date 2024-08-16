@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="contact-container">
-        <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
+        <form id="contactForm" method="POST" class="contact-left">
             <div class="contact-left-title">
                 <h2>Get in touch</h2>
                 <hr>
@@ -17,16 +17,16 @@
             <input type="text" name="name" placeholder="Your name" class="contact-input" required>
             <input type="email" name="email" placeholder="Your email" class="contact-input" required>
             <textarea name="message" placeholder="leave a message" class="contact-input"></textarea>
-            <button type="submit">Submit <img src="assets/arrow_icon.png" alt=""></button>    
-        
+            <button type="submit">Submit</button>    
             <div id="result"></div>
-
         </form>
+        
         <div class="contact-right">
             <img src="assets/right_img.png" alt="">
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="script.js"></script>
 </body>
 </html>
